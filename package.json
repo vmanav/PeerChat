@@ -1,0 +1,25 @@
+{
+  "name": "peerchat",
+  "version": "1.0.0",
+  "description": "Peer-to-peer Chatting Application built on Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmanav/PeerChat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "peer": "^0.2.10",
+    "socket.io": "^2.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/vmanav/PeerChat/issues"
+  },
+  "homepage": "https://github.com/vmanav/PeerChat#readme"
+}
