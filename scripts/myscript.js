@@ -32,7 +32,7 @@ $(() => {
     // });
 
     // For Heroku
-    var peer = new Peer('someid', {
+    var peer = new Peer({
         secure: true,
         host: 'the-peer-chat.herokuapp.com',
         port: 443,
