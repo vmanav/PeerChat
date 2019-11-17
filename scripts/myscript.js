@@ -36,6 +36,7 @@ $(() => {
         secure: true,
         host: 'the-peer-chat.herokuapp.com',
         port: 443,
+        path: '/p2pServer',
     });
 
     // var conn = peer.connect('3h75nadj32n00000')
