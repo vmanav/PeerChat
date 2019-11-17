@@ -25,10 +25,17 @@ $(() => {
     let vChatWindow = $('#vChatWindow');
 
     // Creating a new Peer
-    var peer = new Peer({
-        host: location.hostname,
-        port: 3000,
-        path: '/p2pServer',
+    // var peer = new Peer({
+    //     host: location.hostname,
+    //     port: 3000,
+    //     path: '/p2pServer',
+    // });
+
+    // For Heroku
+    var peer = new Peer('someid', {
+        secure: true,
+        host: 'https://the-peer-chat.herokuapp.com/',
+        port: 443,
     });
 
     // var conn = peer.connect('3h75nadj32n00000')
