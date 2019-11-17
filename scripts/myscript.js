@@ -24,14 +24,19 @@ $(() => {
     let vChatButtton = $('#vChatButtton');
     let vChatWindow = $('#vChatWindow');
 
-    // Creating a new Peer
+
+    
+    // Creating a new Peer for local machine
     // var peer = new Peer({
     //     host: location.hostname,
     //     port: 3000,
     //     path: '/p2pServer',
     // });
 
-    // For Heroku
+
+
+    // configuring PeerJSServer on Heroku
+    // Creating a new Peer
     var peer = new Peer({
         secure: true,
         host: 'the-peer-chat.herokuapp.com',
