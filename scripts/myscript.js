@@ -26,22 +26,22 @@ $(() => {
 
 
     
-    // Creating a new Peer for local machine
-    var peer = new Peer({
-        host: location.hostname,
-        port: 3000,
-        path: '/p2pServer',
-    });
-
-
-    // // configuring PeerJSServer on Heroku
-    // // Creating a new Peer
+    // // Creating a new Peer for local machine
     // var peer = new Peer({
-    //     secure: true,
-    //     host: 'the-peer-chat.herokuapp.com',
-    //     port: 443,
+    //     host: location.hostname,
+    //     port: 3000,
     //     path: '/p2pServer',
     // });
+
+
+    // configuring PeerJSServer on Heroku
+    // Creating a new Peer
+    var peer = new Peer({
+        secure: true,
+        host: 'the-peer-chat.herokuapp.com',
+        port: 443,
+        path: '/p2pServer',
+    });
 
     // var conn = peer.connect('3h75nadj32n00000')
     // conn.send('hello')
