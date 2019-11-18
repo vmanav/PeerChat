@@ -23,9 +23,10 @@ $(() => {
     let myUsername = $('#myUsername');
     let vChatButtton = $('#vChatButtton');
     let vChatWindow = $('#vChatWindow');
+    let vChatend = $('#vChatend');
 
 
-    
+
     // // Creating a new Peer for local machine
     // var peer = new Peer({
     //     host: location.hostname,
@@ -36,6 +37,7 @@ $(() => {
 
     // configuring PeerJSServer on Heroku
     // Creating a new Peer
+
     var peer = new Peer({
         secure: true,
         host: 'the-peer-chat.herokuapp.com',
@@ -43,8 +45,6 @@ $(() => {
         path: '/p2pServer',
     });
 
-    // var conn = peer.connect('3h75nadj32n00000')
-    // conn.send('hello')
 
     // When a new Peer is Created
     peer.on('open', function (id) {
@@ -73,6 +73,7 @@ $(() => {
         })
 
         socket.on('alertAllAboutNewUser', (data) => {
+            console.log("enter alert all `on` event")
             console.log("Data is -->", data);
             console.log(data.list)
             refreshUserList(data.list)
@@ -150,6 +151,7 @@ $(() => {
 
     });
 
+
     // Recieving a call
     peer.on('call', function (call) {
         // Answer the call, providing our mediaStream
@@ -159,10 +161,22 @@ $(() => {
         vChatWindow.show();
         call.answer();
 
+        // Ending video Call from Reciver side
+        vChatend.click(() => {
+            console.log("end Chat clickedddd");
+            call.close();
+        })
+
+        call.on('close', function () {
+            console.log("in call.on(close)");
+            var video = document.getElementById('vChat')
+            video.srcObject = null;
+
+        })
+
         call.on('stream', function (stream) {
             // `stream` is the MediaStream of the remote peer.
             // Here you'd add it to an HTML video/canvas element.
-
             console.log("inside on 'stream'---")
 
             // attach 
@@ -177,7 +191,6 @@ $(() => {
 
     vChatButtton.click(() => {
         console.log("Inside VchatButton.Click()");
-
         // make videoChat visible
         vChatWindow.show();
 
@@ -193,6 +206,7 @@ $(() => {
                 return;
             }
             var call = peer.call(destPeerIDValue, stream);
+
             if (!call) {
                 alert("Please Provide a VALID PeerID.");
                 vChatWindow.hide();
@@ -203,6 +217,15 @@ $(() => {
             var video = document.getElementById('vChatMyStream')
             video.srcObject = stream;
             video.play()
+
+
+            vChatend.click(() => {
+                console.log("end Chat milane vale ke liye clickedddd");
+                call.close();
+                var video = document.getElementById('vChatMyStream')
+                video.srcObject = null;
+
+            })
 
         }, function (err) {
             console.log("Error ->", err)

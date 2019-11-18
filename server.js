@@ -119,21 +119,20 @@ io.on('connection', (socket) => {
     // });
 
 
-    // // disconnect code from Chat.IO
-    // socket.on('disconnect', (reason) => {
-    //     console.log('user disconnected, socketID : ', socket.id);
+    // disconnect code from Chat.IO
+    socket.on('disconnect', (reason) => {
+        console.log('user disconnected, socketID : ', socket.id);
 
-    //     joGyaUskiId = socket.id;
+        // joGyaUskiId = socket.id;
 
-    //     listOfUsers.filter(obj => obj.socketId == socket.id)
-    //     console.log(listOfUsers)
+        listOfUsers = listOfUsers.filter(obj => obj.socketId == socket.id)
+        console.log(listOfUsers)
 
-    //     //    remove user from listOfUsers and the emit alert all
-    //     io.emit('alertAllAboutNewUser', {
-    //         list: listOfUsers
-    //     })
+        //    remove user from listOfUsers and the emit alert all
+        io.emit('alertAllAboutNewUser', {
+            list: listOfUsers
+        })
 
-
-    // });
+    });
 
 })
