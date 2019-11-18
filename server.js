@@ -58,7 +58,8 @@ io.on('connection', (socket) => {
         console.log(data)
         let obj = {
             username: data.username,
-            peerId: data.peerId
+            peerId: data.peerId,
+            socketId: socket.id     // added sccket.id field in a listOfUsers object.
         }
         console.log("Object at serevr ->", obj)
         listOfUsers.push(obj)
@@ -107,14 +108,32 @@ io.on('connection', (socket) => {
 
 
 
-    socket.on('disconnect', (reason) => {
-        let username = null;
-        console.log('user disconnected, socketID : ', socket.id);
+    // socket.on('disconnect', (reason) => {
+    //     let username = null;
+    //     console.log('user disconnected, socketID : ', socket.id);
 
-        io.emit('jaRhahu', {
-            disconnect: true
-        })
+    //     io.emit('jaRhahu', {
+    //         disconnect: true
+    //     })
 
-    });
+    // });
+
+
+    // // disconnect code from Chat.IO
+    // socket.on('disconnect', (reason) => {
+    //     console.log('user disconnected, socketID : ', socket.id);
+
+    //     joGyaUskiId = socket.id;
+
+    //     listOfUsers.filter(obj => obj.socketId == socket.id)
+    //     console.log(listOfUsers)
+
+    //     //    remove user from listOfUsers and the emit alert all
+    //     io.emit('alertAllAboutNewUser', {
+    //         list: listOfUsers
+    //     })
+
+
+    // });
 
 })
