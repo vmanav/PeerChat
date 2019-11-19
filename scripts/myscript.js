@@ -178,6 +178,7 @@ $(() => {
             // attach 
             var video = document.getElementById('vChat')
             video.srcObject = stream;
+            video.load();
             video.play()
 
         });
@@ -212,19 +213,20 @@ $(() => {
             // attach your own stream
             var videoMe = document.getElementById('vChatMyStream')
             videoMe.srcObject = stream;
+            videoMe.load();
             videoMe.play()
 
 
-            // vChatend.click(() => {
-            //     console.log("end Chat milane vale ke liye clickedddd");
-            //     call.close();
-            //     var videoMe = document.getElementById('vChatMyStream')
-            //     videoMe.srcObject = null;
+            vChatend.click(() => {
+                console.log("end Chat milane vale ke liye clickedddd");
+                call.close();
+                var videoMe = document.getElementById('vChatMyStream')
+                videoMe.srcObject = null;
 
-            //     // tob be added 
-            //     // videoMe.load();
+                // tob be added 
+                // videoMe.load();
 
-            // })
+            })
 
         }, function (err) {
             console.log("Error ->", err)
