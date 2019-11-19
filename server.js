@@ -55,6 +55,9 @@ io.on('connection', (socket) => {
     socket.emit('connected')
 
     socket.on('addUser', (data) => {
+        
+        console.log("inside .on( addUser)");
+
         console.log(data)
         let obj = {
             username: data.username,

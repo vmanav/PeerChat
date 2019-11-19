@@ -35,8 +35,8 @@ $(() => {
     // });
 
 
-    // configuring PeerJSServer on Heroku
-    // Creating a new Peer
+    // // configuring PeerJSServer on Heroku
+    // // Creating a new Peer
 
     var peer = new Peer({
         secure: true,
