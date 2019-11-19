@@ -178,7 +178,6 @@ $(() => {
             // attach 
             var video = document.getElementById('vChat')
             video.srcObject = stream;
-            video.load();
             video.play()
 
         });
@@ -213,7 +212,6 @@ $(() => {
             // attach your own stream
             var videoMe = document.getElementById('vChatMyStream')
             videoMe.srcObject = stream;
-            videoMe.load();
             videoMe.play()
 
 
