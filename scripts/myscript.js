@@ -163,12 +163,12 @@ $(() => {
             call.close();
         })
 
-        call.on('close', function () {
-            console.log("in call.on(close)");
-            var video = document.getElementById('vChat')
-            video.srcObject = null;
+        // call.on('close', function () {
+        //     console.log("in call.on(close)");
+        //     var video = document.getElementById('vChat')
+        //     video.srcObject = null;
 
-        })
+        // })
 
         call.on('stream', function (stream) {
             // `stream` is the MediaStream of the remote peer.
@@ -215,16 +215,16 @@ $(() => {
             videoMe.play()
 
 
-            vChatend.click(() => {
-                console.log("end Chat milane vale ke liye clickedddd");
-                call.close();
-                var videoMe = document.getElementById('vChatMyStream')
-                videoMe.srcObject = null;
+            // vChatend.click(() => {
+            //     console.log("end Chat milane vale ke liye clickedddd");
+            //     call.close();
+            //     var videoMe = document.getElementById('vChatMyStream')
+            //     videoMe.srcObject = null;
 
-                // tob be added 
-                // videoMe.load();
+            //     // tob be added 
+            //     // videoMe.load();
 
-            })
+            // })
 
         }, function (err) {
             console.log("Error ->", err)
