@@ -82,9 +82,6 @@ $(() => {
             refreshUserList(data.list)
         })
 
-        // peer.on('disconnected', function () {
-        // });
-
 
     })
 
@@ -94,7 +91,6 @@ $(() => {
         console.log("Error Type: ", err.type);
         alert("Error Encountered : " + err.type);
     })
-
 
     // Recieving a connection
     peer.on('connection', function (connectionObject) {
@@ -109,11 +105,8 @@ $(() => {
                 // console.log('Received', data);
                 chatList.append(`<li>${data}</li>`);
             });
-
         });
-
     });
-
 
     // Clikcing on the Connect Button
     connectButtton.click(() => {
@@ -217,16 +210,19 @@ $(() => {
             }
 
             // attach your own stream
-            var video = document.getElementById('vChatMyStream')
-            video.srcObject = stream;
-            video.play()
+            var videoMe = document.getElementById('vChatMyStream')
+            videoMe.srcObject = stream;
+            videoMe.play()
 
 
             vChatend.click(() => {
                 console.log("end Chat milane vale ke liye clickedddd");
                 call.close();
-                var video = document.getElementById('vChatMyStream')
-                video.srcObject = null;
+                var videoMe = document.getElementById('vChatMyStream')
+                videoMe.srcObject = null;
+
+                // tob be added 
+                // videoMe.load();
 
             })
 
