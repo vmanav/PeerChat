@@ -163,12 +163,12 @@ $(() => {
             call.close();
         })
 
-        // call.on('close', function () {
-        //     console.log("in call.on(close)");
-        //     var video = document.getElementById('vChat')
-        //     video.srcObject = null;
+        call.on('close', function () {
+            console.log("in call.on(close)");
+            var video = document.getElementById('vChat')
+            video.srcObject = null;
 
-        // })
+        })
 
         call.on('stream', function (stream) {
             // `stream` is the MediaStream of the remote peer.
