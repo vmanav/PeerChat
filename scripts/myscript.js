@@ -26,6 +26,9 @@ $(() => {
     let vChatend = $('#vChatend');
 
 
+    // For Connecting to peerJS Serevr rather than our nodejs hosted server
+    var peer = new Peer({
+    });
 
     // // Creating a new Peer for local machine
     // var peer = new Peer({
@@ -35,15 +38,15 @@ $(() => {
     // });
 
 
-    // // configuring PeerJSServer on Heroku
-    // // Creating a new Peer
+    // // // configuring PeerJSServer on Heroku
+    // // // Creating a new Peer
 
-    var peer = new Peer({
-        secure: true,
-        host: 'the-peer-chat.herokuapp.com',
-        port: 443,
-        path: '/p2pServer',
-    });
+    // var peer = new Peer({
+    //     secure: true,
+    //     host: 'the-peer-chat.herokuapp.com',
+    //     port: 443,
+    //     path: '/p2pServer',
+    // });
 
 
     // When a new Peer is Created

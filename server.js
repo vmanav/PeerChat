@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const ExpressPeerServer = require('peer').ExpressPeerServer;
+
+// const ExpressPeerServer = require('peer').ExpressPeerServer;
+
 const http = require('http');
 const socket = require('socket.io');
 
@@ -21,15 +23,15 @@ server.listen(PORT, () => {
     console.log("p2pChat Running on : http://localhost:3000/p2pChat")
 })
 
-const options = {
-    debug: true
-}
+// const options = {
+//     debug: true
+// }
 
-const peerserver = ExpressPeerServer(server, options);
+// const peerserver = ExpressPeerServer(server, options);
 
 app.use('/', express.static(__dirname + '/scripts'))
 
-app.use('/p2pServer', peerserver);
+// app.use('/p2pServer', peerserver);
 
 app.get('/p2p', (req, res) => {
     res.render('temp.hbs', { users })
@@ -39,11 +41,11 @@ app.get('/p2pChat', (req, res) => {
     res.render('index');
 })
 
-peerserver.on('connection', (client) => {
-    console.log("Client connected : ", client)
-    // users.push(client)
-    // console.log("Users Available : ", users)
-});
+// peerserver.on('connection', (client) => {
+//     console.log("Client connected : ", client)
+//     // users.push(client)
+//     // console.log("Users Available : ", users)
+// });
 
 
 
