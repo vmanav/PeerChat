@@ -179,9 +179,7 @@ $(() => {
             var video = document.getElementById('vChat')
             video.srcObject = stream;
             video.play()
-
         });
-
     });
 
 
@@ -223,7 +221,6 @@ $(() => {
 
                 // tob be added 
                 // videoMe.load();
-
             })
 
         }, function (err) {
@@ -231,8 +228,6 @@ $(() => {
             // console.log(err)
         })
     })
-
-
 
     function refreshUserList(listOfUsers) {
         userList.text("")

@@ -47,8 +47,6 @@ app.get('/p2pChat', (req, res) => {
 //     // console.log("Users Available : ", users)
 // });
 
-
-
 io.on('connection', (socket) => {
     console.log("Connection Established :", socket.id)
 
@@ -122,7 +120,6 @@ io.on('connection', (socket) => {
     //     })
 
     // });
-
 
     // disconnect code from Chat.IO
     socket.on('disconnect', (reason) => {
